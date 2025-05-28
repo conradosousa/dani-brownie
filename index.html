@@ -3,182 +3,384 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dani Bastos Brownie</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 
-    <style>
-        body.no-scroll {
-            overflow: hidden;
-        }
-    </style>
+    <!-- Lightbox2 CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet" />
+
+    <!-- Google Fonts (Plus Jakarta Sans) -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;900&display=swap"
+        rel="stylesheet" />
 </head>
 
 <body class="bg-white" style='font-family: "Plus Jakarta Sans", sans-serif;'>
 
-    <!-- Hero -->
-    <section class="bg-cover bg-center min-h-[480px] flex flex-col items-center justify-center text-center p-4"
-        style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), url('imagens/logo.jpeg');">
-        <h1 class="text-white text-5xl font-extrabold">Dani Bastos Brownie</h1>
-        <p class="text-white text-lg mt-2">O melhor brownie da cidade!</p>
+    <!-- Botões Flutuantes Fixos -->
+    <div class="fixed bottom-6 right-6 flex flex-col items-end space-y-2 z-50">
         <a href="https://wa.me/5585985035891" target="_blank"
-            class="mt-6 bg-[#e57f19] text-[#181411] px-6 py-3 rounded-xl font-bold hover:bg-orange-600 hover:text-white transition">Peça
-            Agora</a>
+            class="bg-[#25D366] text-white px-4 py-2 rounded-full shadow-lg hover:scale-105 transition">WhatsApp</a>
+        <a href="https://www.instagram.com/danibastosbrownie/" target="_blank"
+            class="bg-gradient-to-r from-pink-500 to-yellow-500 text-white px-4 py-2 rounded-full shadow-lg hover:scale-105 transition">Instagram</a>
+    </div>
+
+    <!-- Header Fixo com Menu Responsivo -->
+    <header class="fixed top-0 left-0 w-full bg-white shadow z-50">
+        <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
+            <a href="#" class="flex items-center space-x-2">
+                <img src="imagens/logo.jpeg" alt="Logo" class="h-10 w-10 rounded-full object-cover" />
+                <span class="text-[#181411] font-bold text-lg">Dani Bastos Brownie</span>
+            </a>
+            <button id="menu-toggle" class="md:hidden text-[#181411] focus:outline-none" aria-label="Toggle menu">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" stroke="currentColor"
+                    stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+            <nav class="hidden md:flex space-x-6 text-[#181411] font-medium">
+                <a href="#produtos" class="hover:text-[#e57f19] transition">Produtos</a>
+                <a href="#contato" class="hover:text-[#e57f19] transition">Contato</a>
+                <a href="#redes" class="hover:text-[#e57f19] transition">Redes Sociais</a>
+            </nav>
+            <a href="https://wa.me/5585985035891" target="_blank"
+                class="bg-[#e57f19] text-white px-4 py-2 rounded-xl font-bold hover:bg-[#cf6f12] transition hidden md:inline-block">Peça
+                Agora</a>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden px-4 pb-4">
+            <nav class="flex flex-col space-y-2 text-[#181411] font-medium">
+                <a href="#produtos" class="hover:text-[#e57f19] transition">Produtos</a>
+                <a href="#contato" class="hover:text-[#e57f19] transition">Contato</a>
+                <a href="#redes" class="hover:text-[#e57f19] transition">Redes Sociais</a>
+                <a href="https://wa.me/5585985035891" target="_blank"
+                    class="bg-[#e57f19] text-white px-4 py-2 rounded-xl font-bold hover:bg-[#cf6f12] transition text-center">Peça
+                    Agora</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Espaço para compensar o header fixo -->
+    <div class="h-[72px]"></div>
+
+    <!-- Hero Melhorado -->
+    <section class="relative bg-cover bg-center min-h-[520px] flex flex-col items-center justify-center text-center p-6"
+        style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('imagens/logo.jpeg');">
+        <div class="relative z-10">
+            <h1 class="text-white text-5xl font-extrabold drop-shadow-md">Dani Bastos Brownie</h1>
+            <p class="text-white text-lg mt-2 drop-shadow-sm">O melhor brownie da cidade!</p>
+            <a href="https://wa.me/5585985035891" target="_blank"
+                class="mt-6 inline-block bg-[#e57f19] text-[#181411] px-6 py-3 rounded-xl font-bold shadow-lg hover:bg-[#cf6f12] transition">Peça
+                Agora</a>
+        </div>
     </section>
 
-    <!-- Produtos -->
-    <section class="px-4 py-6 max-w-7xl mx-auto">
-        <h2 class="text-2xl font-bold mb-6 text-[#181411]">Nossos Produtos</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+    <!-- Promoções / Combos -->
+    <section class="bg-[#fef3e7] px-6 py-10 text-center">
+  <h2 class="text-2xl font-bold text-[#181411] mb-4">Ofertas Especiais</h2>
+  <p class="text-[#181411] text-lg mb-6">
+    Aproveite nossos combos com descontos imperdíveis para adoçar seu dia!
+  </p>
 
-            <!-- Brownie Clássico -->
-            <div class="text-center cursor-pointer" onclick="openModal('brownie')">
-                <img src="imagens/brownie.jpeg" alt="Brownie Clássico"
-                    class="rounded-xl shadow hover:opacity-80 transition mx-auto" />
-                <p class="mt-2 text-[#181411] font-medium">Brownie Clássico</p>
+  <!-- Vídeo local -->
+  <div class="mb-6">
+    <video class="mx-auto rounded-lg shadow-md" width="640" height="360" controls>
+      <source src="imagens/video-promocoes.mp4" type="video/mp4" />
+      Seu navegador não suporta vídeos HTML5.
+    </video>
+  </div>
+
+  <div class="flex flex-col md:flex-row gap-6 justify-center">
+    <div class="bg-white rounded-xl shadow-md p-6 w-full md:w-1/3">
+      <h3 class="font-bold text-[#e57f19] text-xl mb-2">Promoções</h3>
+      <p class="text-[#181411] mb-2"></p>
+      
+    </div>
+    <div class="bg-white rounded-xl shadow-md p-6 w-full md:w-1/3">
+      <h3 class="font-bold text-[#e57f19] text-xl mb-2">Pra esse Mês!</h3>
+      
+    </div>
+  </div>
+</section>
+
+    <!-- Nossos Produtos -->
+    <section id="produtos" class="max-w-7xl mx-auto px-6 py-10">
+        <h2 class="text-3xl font-bold text-center mb-6 text-[#181411]">Nossos Produtos</h2>
+
+        <!-- Botões para alternar visualização -->
+        <div class="flex justify-center space-x-4 mb-8">
+            <button id="btn-grid"
+                class="px-4 py-2 bg-[#e57f19] text-white rounded hover:bg-[#cf6f12] transition focus:outline-none">Grid</button>
+            <button id="btn-carousel"
+                class="px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400 transition focus:outline-none">Carrossel</button>
+            <button id="btn-lightbox"
+                class="px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400 transition focus:outline-none">Galeria</button>
+        </div>
+
+        <!-- Grid fixo -->
+        <div id="view-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            <!-- Categoria 1 -->
+            <div>
+                <h3 class="font-semibold text-xl mb-4 text-[#e57f19]">Brownies</h3>
+                <div class="space-y-6">
+                    <div class="bg-white p-4 rounded shadow hover:shadow-lg transition">
+                        <img src="imagens/brownie.jpeg" alt="Brownie Tradicional"
+                            class="w-full h-48 object-cover rounded mb-3" />
+                        <h4 class="font-bold text-lg text-[#181411]">Brownie Tradicional</h4>
+                        <p class="text-gray-600 text-sm mb-2">Brownie clássico com chocolate meio amargo.</p>
+                        <span class="font-semibold text-[#e57f19]">R$ 4,50</span>
+                    </div>
+                    <div class="bg-white p-4 rounded shadow hover:shadow-lg transition">
+                        <img src="imagens/bombom.jpeg" alt="Brownie com Crocantes"
+                            class="w-full h-48 object-cover rounded mb-3" />
+                        <h4 class="font-bold text-lg text-[#181411]">Brownie com Crocantes</h4>
+                        <p class="text-gray-600 text-sm mb-2">Brownie com pedaços de amendoins ou castanhas crocantes.</p>
+                        <span class="font-semibold text-[#e57f19]">R$ 2,00</span>
+                    </div>
+                </div>
             </div>
 
-            <!-- Bolos -->
-            <div class="text-center cursor-pointer" onclick="openModal('bolos')">
-                <img src="imagens/bolo2.jpeg" alt="Bolos"
-                    class="rounded-xl shadow hover:opacity-80 transition mx-auto" />
-                <p class="mt-2 text-[#181411] font-medium">Bolos Especiais</p>
+            <!-- Categoria 2 -->
+            <div>
+                <h3 class="font-semibold text-xl mb-4 text-[#e57f19]">Cupcakes</h3>
+                <div class="space-y-6">
+                    <div class="bg-white p-4 rounded shadow hover:shadow-lg transition">
+                        <img src="imagens/cupcakc.jpeg" alt="Cupcake de Chocolate"
+                            class="w-full h-48 object-cover rounded mb-3" />
+                        <h4 class="font-bold text-lg text-[#181411]">Cupcake de Brownie</h4>
+                        <p class="text-gray-600 text-sm mb-2">Cupcake fofinho com cobertura de chantili.</p>
+                        <span class="font-semibold text-[#e57f19]">R$ 8,00</span>
+                    </div>
+                    <div class="bg-white p-4 rounded shadow hover:shadow-lg transition">
+                        <img src="imagens/presente.jpeg" alt="Cupcake Red Velvet"
+                            class="w-full h-48 object-cover rounded mb-3" />
+                        <h4 class="font-bold text-lg text-[#181411]">Cupcake Red Velvet</h4>
+                        <p class="text-gray-600 text-sm mb-2">Delicioso cupcake com sabor Red Velvet.</p>
+                        <span class="font-semibold text-[#e57f19]">R$ 8,90</span>
+                    </div>
+                </div>
             </div>
 
-            <!-- Doces Variados -->
-            <div class="text-center cursor-pointer" onclick="openModal('doces')">
-                <img src="imagens/brigadeiro.jpeg" alt="Doces Variados"
-                    class="rounded-xl shadow hover:opacity-80 transition mx-auto" />
-                <p class="mt-2 text-[#181411] font-medium">Doces Variados</p>
+            <!-- Categoria 3 -->
+            <div>
+                <h3 class="font-semibold text-xl mb-4 text-[#e57f19]">Outros</h3>
+                <div class="space-y-6">
+                    <div class="bg-white p-4 rounded shadow hover:shadow-lg transition">
+                        <img src="imagens/brigadeiro.jpeg" alt="Brigadeiro Gourmet"
+                            class="w-full h-48 object-cover rounded mb-3" />
+                        <h4 class="font-bold text-lg text-[#181411]">Brigadeiro Gourmet</h4>
+                        <p class="text-gray-600 text-sm mb-2">Brigadeiro artesanal com chocolate belga.</p>
+                        <span class="font-semibold text-[#e57f19]">R$ 2,00</span>
+                    </div>
+                </div>
             </div>
+        </div>
 
+        <!-- Carrossel -->
+        <div id="view-carousel" class="hidden relative max-w-5xl mx-auto">
+            <div class="overflow-hidden rounded-lg shadow-lg">
+                <div id="carousel-track" class="flex transition-transform duration-500 ease-in-out">
+                    <!-- Repetir os cards dos produtos no carrossel -->
+
+                    <!-- Brownie Tradicional -->
+                    <div class="min-w-[300px] p-4">
+                        <img src="imagens/brownie.jpeg" alt="Brownie Tradicional"
+                            class="w-full h-48 object-cover rounded mb-3" />
+                        <h4 class="font-bold text-lg text-[#181411]">Brownie Tradicional</h4>
+                        <p class="text-gray-600 text-sm mb-2">Brownie clássico com chocolate meio amargo.</p>
+                        <span class="font-semibold text-[#e57f19]">R$ 8,90</span>
+                    </div>
+
+                    <!-- Brownie com Nozes -->
+                    <div class="min-w-[300px] p-4">
+                        <img src="imagens/bombom.jpeg" alt="Brownie com Nozes"
+                            class="w-full h-48 object-cover rounded mb-3" />
+                        <h4 class="font-bold text-lg text-[#181411]">Brownie com Nozes</h4>
+                        <p class="text-gray-600 text-sm mb-2">Brownie com pedaços de nozes crocantes.</p>
+                        <span class="font-semibold text-[#e57f19]">R$ 9,90</span>
+                    </div>
+
+                    <!-- Cupcake de Chocolate -->
+                    <div class="min-w-[300px] p-4">
+                        <img src="imagens/cupcakc.jpeg" alt="Cupcake de Chocolate"
+                            class="w-full h-48 object-cover rounded mb-3" />
+                        <h4 class="font-bold text-lg text-[#181411]">Cupcake de Chocolate</h4>
+                        <p class="text-gray-600 text-sm mb-2">Cupcake fofinho com cobertura de chocolate.</p>
+                        <span class="font-semibold text-[#e57f19]">R$ 7,90</span>
+                    </div>
+
+                    <!-- Cupcake Red Velvet -->
+                    <div class="min-w-[300px] p-4">
+                        <img src="imagens/presente.jpeg" alt="Cupcake Red Velvet"
+                            class="w-full h-48 object-cover rounded mb-3" />
+                        <h4 class="font-bold text-lg text-[#181411]">Cupcake Red Velvet</h4>
+                        <p class="text-gray-600 text-sm mb-2">Delicioso cupcake com sabor Red Velvet.</p>
+                        <span class="font-semibold text-[#e57f19]">R$ 8,90</span>
+                    </div>
+
+                    <!-- Brigadeiro Gourmet -->
+                    <div class="min-w-[300px] p-4">
+                        <img src="imagens/brigadeiro.jpeg" alt="Brigadeiro Gourmet"
+                            class="w-full h-48 object-cover rounded mb-3" />
+                        <h4 class="font-bold text-lg text-[#181411]">Brigadeiro Gourmet</h4>
+                        <p class="text-gray-600 text-sm mb-2">Brigadeiro artesanal com chocolate belga.</p>
+                        <span class="font-semibold text-[#e57f19]">R$ 5,90</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Controles do Carrossel -->
+            <button id="prev" aria-label="Anterior"
+                class="absolute top-1/2 -translate-y-1/2 left-2 bg-[#e57f19] text-white p-2 rounded-full hover:bg-[#cf6f12] transition">
+                &#10094;
+            </button>
+            <button id="next" aria-label="Próximo"
+                class="absolute top-1/2 -translate-y-1/2 right-2 bg-[#e57f19] text-white p-2 rounded-full hover:bg-[#cf6f12] transition">
+                &#10095;
+            </button>
+        </div>
+
+        <!-- Galeria Lightbox -->
+        <div id="view-lightbox" class="hidden max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+            <!-- Cada imagem é um link para a imagem maior com atributo data-lightbox -->
+            <a href="imagens/brownie.jpeg" data-lightbox="produtos" data-title="Brownie Tradicional - R$ 8,90">
+                <img src="imagens/brownie.jpeg" alt="Brownie Tradicional"
+                    class="rounded shadow hover:opacity-80 transition" />
+            </a>
+            <a href="imagens/bombom.jpeg" data-lightbox="produtos" data-title="Brownie com Nozes - R$ 9,90">
+                <img src="imagens/bombom.jpeg" alt="Brownie com Nozes"
+                    class="rounded shadow hover:opacity-80 transition" />
+            </a>
+            <a href="imagens/cupcakc.jpeg" data-lightbox="produtos" data-title="Cupcake de Chocolate - R$ 7,90">
+                <img src="imagens/cupcakc.jpeg" alt="Cupcake de Chocolate"
+                    class="rounded shadow hover:opacity-80 transition" />
+            </a>
+            <a href="imagens/petit.jpeg" data-lightbox="produtos" data-title="Cupcake Red Velvet - R$ 8,90">
+                <img src="imagens/petit.jpeg" alt="Cupcake Red Velvet"
+                    class="rounded shadow hover:opacity-80 transition" />
+            </a>
+            <a href="imagens/brigadeiro.jpeg" data-lightbox="produtos" data-title="Brigadeiro Gourmet - R$ 5,90">
+                <img src="imagens/brigadeiro.jpeg" alt="Brigadeiro Gourmet"
+                    class="rounded shadow hover:opacity-80 transition" />
+            </a>
         </div>
     </section>
 
     <!-- Contato -->
-    <section class="px-4 py-6 max-w-7xl mx-auto">
-        <h2 class="text-2xl font-bold mb-4 text-[#181411]">Contato</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <form class="space-y-4">
-                <input type="text" placeholder="Seu nome" class="w-full rounded-xl p-4 bg-[#f4f2f0]" />
-                <input type="email" placeholder="Seu e-mail" class="w-full rounded-xl p-4 bg-[#f4f2f0]" />
-                <textarea placeholder="Mensagem" class="w-full rounded-xl p-4 bg-[#f4f2f0] h-32"></textarea>
-                <button type="submit"
-                    class="w-full bg-[#e57f19] text-[#181411] font-bold py-3 rounded-xl hover:bg-orange-600 hover:text-white transition">Enviar</button>
-            </form>
-            <iframe src="https://www.google.com/maps/place/Av.+Rad.+Jo%C3%A3o+Ramos,+815+-+Planalto+Ayrton+Senna,+Maracana%C3%BA+-+CE,+61930-360"
-                width="100%" height="300" style="border:0; border-radius: 16px;" allowfullscreen=""
-                loading="lazy"></iframe>
-        </div>
-    </section> 
+    <section id="contato" class="bg-[#fef3e7] py-10 px-6 max-w-3xl mx-auto rounded-xl shadow-lg mb-16">
+        <h2 class="text-3xl font-bold text-center mb-6 text-[#181411]">Contato</h2>
+        <form class="flex flex-col gap-4 text-[#181411]" action="https://formsubmit.co/seu-email@dominio.com"
+            method="POST" target="_blank" novalidate>
+            <input type="text" name="nome" placeholder="Seu nome" required
+                class="p-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#e57f19]" />
+            <input type="email" name="email" placeholder="Seu e-mail" required
+                class="p-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#e57f19]" />
+            <textarea name="mensagem" rows="4" placeholder="Sua mensagem" required
+                class="p-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#e57f19]"></textarea>
+            <button type="submit"
+                class="bg-[#e57f19] text-white py-3 rounded font-bold hover:bg-[#cf6f12] transition">Enviar</button>
+        </form>
+    </section>
 
-    <!-- Redes sociais -->
-    <section class="px-4 py-6 text-center max-w-7xl mx-auto">
-        <h2 class="text-2xl font-bold mb-4 text-[#181411]">Siga-nos</h2>
-        <div class="flex justify-center gap-4 flex-wrap">
-            <a href="https://www.instagram.com/danibastosbrownie/" target="_blank"
-                class="bg-[#e57f19] text-[#181411] px-6 py-3 rounded-xl font-bold hover:bg-orange-600 hover:text-white transition">Instagram</a>
-            <a href="https://wa.me/5585985035891" target="_blank"
-                class="bg-[#25D366] text-white px-6 py-3 rounded-xl font-bold hover:bg-green-700 transition">WhatsApp</a>
+    <!-- Redes Sociais -->
+    <section id="redes" class="max-w-7xl mx-auto px-6 py-10 text-center">
+        <h2 class="text-3xl font-bold text-[#181411] mb-6">Siga-nos no Instagram</h2>
+        <div class="flex justify-center space-x-8 text-[#e57f19] text-4xl">
+            <a href="https://www.instagram.com/danibastosbrownie/" target="_blank" aria-label="Instagram"
+                class="hover:text-[#cf6f12] transition">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-10 h-10" viewBox="0 0 24 24">
+                    <path
+                        d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 2A3.75 3.75 0 004 7.75v8.5A3.75 3.75 0 007.75 20h8.5a3.75 3.75 0 003.75-3.75v-8.5A3.75 3.75 0 0016.25 4h-8.5zM12 7a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6zm4.75-.5a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5z" />
+                </svg>
+            </a>
+
         </div>
     </section>
 
     <!-- Rodapé -->
-    <footer class="text-center text-sm text-gray-400 py-4">© 2025 Dani Bastos Brownie</footer>
+    <footer class="bg-[#181411] text-[#fef3e7] py-6 text-center">
+        <p>© 2024 Dani Bastos Brownie. Todos os direitos reservados.</p>
+    </footer>
 
-    <!-- Modais dos produtos -->
-
-    <!-- Modal: Brownie Clássico -->
-    <div id="modal-brownie"
-        class="fixed inset-0 bg-black bg-opacity-60 z-50 flex items-center justify-center hidden px-4 py-6">
-        <div class="bg-white rounded-2xl max-w-xl w-full p-6 relative max-h-[90vh] overflow-y-auto">
-            <button onclick="closeModal('brownie')"
-                class="absolute top-4 right-4 text-gray-500 hover:text-black text-3xl font-bold leading-none">&times;</button>
-            <img src="imagens/brownie.jpeg" alt="Brownie Clássico" class="rounded-xl w-full mb-4"
-                id="mainImage-brownie" />
-            <div class="flex gap-2 mb-4 justify-center">
-                <img src="imagens/brownie.jpeg" class="w-16 h-16 rounded-xl cursor-pointer border-2 border-orange-500"
-                    onclick="setMainImage('brownie', 'imagens/brownie.jpeg')" />
-                <img src="imagens/bombom.jpeg" class="w-16 h-16 rounded-xl cursor-pointer"
-                    onclick="setMainImage('brownie', 'imagens/bombom.jpeg')" />
-                <img src="imagens/cupcakc.jpeg" class="w-16 h-16 rounded-xl cursor-pointer"
-                    onclick="setMainImage('brownie', 'imagens/cupcakc.jpeg')" />
-            </div>
-            <h3 class="text-xl font-bold text-[#181411]">Brownie Clássico</h3>
-            <p class="text-[#444] mt-2">Brownie artesanal com chocolate meio amargo e recheios deliciosos. Um sucesso
-                para qualquer
-                ocasião!</p>
-            <a href="https://wa.me/5585985035891?text=Quero%20comprar%20um%20Brownie%20Clássico!" target="_blank"
-                class="mt-4 inline-block bg-[#e57f19] text-[#181411] px-6 py-3 rounded-xl font-bold hover:bg-orange-600 hover:text-white transition">Comprar</a>
-        </div>
-    </div>
-
-    <!-- Modal: Bolos -->
-    <div id="modal-bolos"
-        class="fixed inset-0 bg-black bg-opacity-60 z-50 flex items-center justify-center hidden px-4 py-6">
-        <div class="bg-white rounded-2xl max-w-xl w-full p-6 relative max-h-[90vh] overflow-y-auto">
-            <button onclick="closeModal('bolos')"
-                class="absolute top-4 right-4 text-gray-500 hover:text-black text-3xl font-bold leading-none">&times;</button>
-            <img src="imagens/bolo.jpeg" alt="Bolos" class="rounded-xl w-full mb-4" id="mainImage-bolos" />
-            <div class="flex gap-2 mb-4 justify-center">
-                <img src="imagens/bolo.jpeg" class="w-16 h-16 rounded-xl cursor-pointer border-2 border-orange-500"
-                    onclick="setMainImage('bolos', 'imagens/bolo.jpeg')" />
-                <img src="imagens/bolo2.jpeg" class="w-16 h-16 rounded-xl cursor-pointer"
-                    onclick="setMainImage('bolos', 'imagens/bolo2.jpeg')" />
-            </div>
-            <h3 class="text-xl font-bold text-[#181411]">Bolos Especiais</h3>
-            <p class="text-[#444] mt-2">Bolos recheados, decorados e personalizados com muito carinho. Perfeitos para
-                festas ou momentos
-                especiais!</p>
-            <a href="https://wa.me/5585985035891?text=Quero%20comprar%20um%20Bolo%20Especial!" target="_blank"
-                class="mt-4 inline-block bg-[#e57f19] text-[#181411] px-6 py-3 rounded-xl font-bold hover:bg-orange-600 hover:text-white transition">Comprar</a>
-        </div>
-    </div>
-
-    <!-- Modal: Doces Variados -->
-    <div id="modal-doces"
-        class="fixed inset-0 bg-black bg-opacity-60 z-50 flex items-center justify-center hidden px-4 py-6">
-        <div class="bg-white rounded-2xl max-w-xl w-full p-6 relative max-h-[90vh] overflow-y-auto">
-            <button onclick="closeModal('doces')"
-                class="absolute top-4 right-4 text-gray-500 hover:text-black text-3xl font-bold leading-none">&times;</button>
-            <img src="imagens/brigadeiro.jpeg" alt="Doces Variados" class="rounded-xl w-full mb-4"
-                id="mainImage-doces" />
-            <div class="flex gap-2 mb-4 justify-center">
-                <img src="imagens/brigadeiro.jpeg"
-                    class="w-16 h-16 rounded-xl cursor-pointer border-2 border-orange-500"
-                    onclick="setMainImage('doces', 'imagens/brigadeiro.jpeg')" />
-                <img src="imagens/pipoca.jpeg" class="w-16 h-16 rounded-xl cursor-pointer"
-                    onclick="setMainImage('doces', 'imagens/pipoca.jpeg')" />
-                <img src="https://via.placeholder.com/100x100?text=Doce+3" class="w-16 h-16 rounded-xl cursor-pointer"
-                    onclick="setMainImage('doces', 'https://via.placeholder.com/800x600?text=Doce3')" />
-            </div>
-            <h3 class="text-xl font-bold text-[#181411]">Doces Variados</h3>
-            <p class="text-[#444] mt-2">Brigadeiros, pipocas gourmet e outros doces irresistíveis para adoçar seu dia.
-            </p>
-            <a href="https://wa.me/5585985035891?text=Quero%20comprar%20Doces%20Variados!" target="_blank"
-                class="mt-4 inline-block bg-[#e57f19] text-[#181411] px-6 py-3 rounded-xl font-bold hover:bg-orange-600 hover:text-white transition">Comprar</a>
-        </div>
-    </div>
+    <!-- Lightbox2 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
 
     <script>
-        function openModal(produto) {
-            document.getElementById(`modal-${produto}`).classList.remove("hidden");
-            document.body.classList.add("no-scroll");
+        // Menu mobile toggle
+        const menuToggle = document.getElementById("menu-toggle");
+        const mobileMenu = document.getElementById("mobile-menu");
+        menuToggle.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+        });
+
+        // Visualização produtos: grid, carrossel, lightbox
+        const btnGrid = document.getElementById("btn-grid");
+        const btnCarousel = document.getElementById("btn-carousel");
+        const btnLightbox = document.getElementById("btn-lightbox");
+
+        const viewGrid = document.getElementById("view-grid");
+        const viewCarousel = document.getElementById("view-carousel");
+        const viewLightbox = document.getElementById("view-lightbox");
+
+        function setActiveView(view) {
+            viewGrid.classList.add("hidden");
+            viewCarousel.classList.add("hidden");
+            viewLightbox.classList.add("hidden");
+
+            btnGrid.classList.remove("bg-[#e57f19]", "text-white");
+            btnGrid.classList.add("bg-gray-300", "text-gray-700");
+            btnCarousel.classList.remove("bg-[#e57f19]", "text-white");
+            btnCarousel.classList.add("bg-gray-300", "text-gray-700");
+            btnLightbox.classList.remove("bg-[#e57f19]", "text-white");
+            btnLightbox.classList.add("bg-gray-300", "text-gray-700");
+
+            if (view === "grid") {
+                viewGrid.classList.remove("hidden");
+                btnGrid.classList.add("bg-[#e57f19]", "text-white");
+                btnGrid.classList.remove("bg-gray-300", "text-gray-700");
+            } else if (view === "carousel") {
+                viewCarousel.classList.remove("hidden");
+                btnCarousel.classList.add("bg-[#e57f19]", "text-white");
+                btnCarousel.classList.remove("bg-gray-300", "text-gray-700");
+            } else if (view === "lightbox") {
+                viewLightbox.classList.remove("hidden");
+                btnLightbox.classList.add("bg-[#e57f19]", "text-white");
+                btnLightbox.classList.remove("bg-gray-300", "text-gray-700");
+            }
         }
 
-        function closeModal(produto) {
-            document.getElementById(`modal-${produto}`).classList.add("hidden");
-            document.body.classList.remove("no-scroll");
+        btnGrid.addEventListener("click", () => setActiveView("grid"));
+        btnCarousel.addEventListener("click", () => setActiveView("carousel"));
+        btnLightbox.addEventListener("click", () => setActiveView("lightbox"));
+
+        // Inicializa com grid ativo
+        setActiveView("grid");
+
+        // Carrossel - lógica simples
+        const track = document.getElementById("carousel-track");
+        const prevBtn = document.getElementById("prev");
+        const nextBtn = document.getElementById("next");
+        const slideWidth = 308; // 300px width + 8px padding aprox
+
+        let currentIndex = 0;
+        const totalSlides = track.children.length;
+
+        function updateCarousel() {
+            track.style.transform = `translateX(${-currentIndex * slideWidth}px)`;
         }
 
-        function setMainImage(produto, src) {
-            document.getElementById(`mainImage-${produto}`).src = src;
-        }
+        prevBtn.addEventListener("click", () => {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        });
+
+        nextBtn.addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            updateCarousel();
+        });
+
     </script>
-
 </body>
 
 </html>
