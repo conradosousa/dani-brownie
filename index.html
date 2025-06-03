@@ -16,6 +16,10 @@
     <!-- Google Fonts (Plus Jakarta Sans) -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;900&display=swap"
         rel="stylesheet" />
+
+    <link href="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/css/lightbox.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/js/lightbox.min.js"></script>
+
 </head>
 
 <body class="bg-white" style='font-family: "Plus Jakarta Sans", sans-serif;'>
@@ -68,22 +72,13 @@
     <!-- História da Dani Bastos Brownies -->
     <section id="historia" class="bg-[#fef3e7] px-6 py-12">
         <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl font-bold text-[#181411] mb-6">A História da Dani Bastos Brownies</h2>
+            <h2 class="text-3xl font-bold text-[#181411] mb-6">A Dani Bastos Brownies</h2>
             <p class="text-lg text-[#181411] leading-relaxed mb-4">
-                Tudo começou com o sonho de transformar uma paixão em um propósito. Dani sempre foi apaixonada por
-                confeitaria, mas foi nos brownies que encontrou sua verdadeira especialidade. Começando em casa, com
-                receitas testadas na cozinha da família, ela logo conquistou o paladar de amigos, vizinhos e colegas de
-                trabalho.
+                Desde 2019, a Dani Bastos Brownies vem adoçando momentos especiais com talento, delicadeza e visão
+                empreendedora.
+            <p> Cada brownie é feito com carinho, qualidade e aquele toque único que conquista corações.
             </p>
-            <p class="text-lg text-[#181411] leading-relaxed mb-4">
-                O sucesso foi tão grande que a produção cresceu e ganhou identidade própria: nascia a Dani Bastos
-                Brownies, com o compromisso de oferecer doces artesanais feitos com ingredientes selecionados, muito
-                amor e aquele toque caseiro que faz toda a diferença.
-            </p>
-            <p class="text-lg text-[#181411] leading-relaxed">
-                Hoje, a Dani Bastos Brownies é referência em qualidade e sabor, adoçando momentos especiais de muitas
-                famílias em Fortaleza e além. Nosso objetivo é continuar espalhando felicidade em forma de brownie!
-            </p>
+
         </div>
     </section>
 
@@ -116,11 +111,17 @@
         <div class="flex flex-col md:flex-row gap-6 justify-center">
             <div class="bg-white rounded-xl shadow-md p-6 w-full md:w-1/3">
                 <img src="imagens/promoção.jpeg" alt="">
-                <h3 class="font-bold text-[#e57f19] text-xl mb-2">Promoções</h3>
+                <h3 class="font-bold text-[#e57f19] text-xl mb-2 mt-6">Promoções</h3>
                 <p class="text-[#181411] mb-2"></p>
 
             </div>
             <div class="bg-white rounded-xl shadow-md p-6 w-full md:w-1/3">
+                <div class="mb-6">
+                    <video class="mx-auto rounded-lg shadow-md" width="640" height="360" controls>
+                        <source src="imagens/saojoao.mp4" type="video/mp4" />
+                        Seu navegador não suporta vídeos HTML5.
+                    </video>
+                </div>
                 <h3 class="font-bold text-[#e57f19] text-xl mb-2">Para esse Mês!</h3>
 
             </div>
@@ -141,26 +142,42 @@
                 class="px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400 transition focus:outline-none">Galeria</button>
         </div>
 
-        <!-- Grid fixo -->
+        
+
         <div id="view-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+
             <!-- Categoria 1 -->
             <div>
                 <h3 class="font-semibold text-xl mb-4 text-[#e57f19]">Brownies</h3>
                 <div class="space-y-6">
                     <div class="bg-white p-4 rounded shadow hover:shadow-lg transition">
-
-                        <img src="imagens/brownie.jpeg" alt="Brownie Tradicional"
-                            class="w-full h-48 object-cover rounded mb-3" />
+                        <a href="imagens/brownie.jpeg" data-lightbox="produtos" data-title="Brownie Tradicional">
+                            <img src="imagens/brownie.jpeg" alt="Brownie Tradicional"
+                                class="w-full h-48 object-cover rounded mb-3" />
+                        </a>
                         <h4 class="font-bold text-lg text-[#181411]">Brownie Tradicional</h4>
                         <p class="text-gray-600 text-sm mb-2">Brownie clássico com chocolate meio amargo.</p>
                         <span class="font-semibold text-[#e57f19]">R$ 5,00</span>
                     </div>
+
                     <div class="bg-white p-4 rounded shadow hover:shadow-lg transition">
-                        <img src="imagens/bombom.jpeg" alt="Brownie com Crocantes"
-                            class="w-full h-48 object-cover rounded mb-3" />
+                        <a href="imagens/brigadeiro.jpeg" data-lightbox="produtos" data-title="Brigadeiro Gourmet">
+                            <img src="imagens/brigadeiro.jpeg" alt="Brigadeiro Gourmet"
+                                class="w-full h-48 object-cover rounded mb-3" />
+                        </a>
+                        <h4 class="font-bold text-lg text-[#181411]">Brigadeiro Gourmet</h4>
+                        <p class="text-gray-600 text-sm mb-2">Brigadeiro artesanal.</p>
+                        <span class="font-semibold text-[#e57f19]">R$ 1,50</span>
+                    </div>
+
+
+                    <div class="bg-white p-4 rounded shadow hover:shadow-lg transition">
+                        <a href="imagens/bombom.jpeg" data-lightbox="produtos" data-title="Bombons de brownie">
+                            <img src="imagens/bombom.jpeg" alt="Bombons de brownie"
+                                class="w-full h-48 object-cover rounded mb-3" />
+                        </a>
                         <h4 class="font-bold text-lg text-[#181411]">Bombons de brownie</h4>
-                        <p class="text-gray-600 text-sm mb-2">Brownie com cobertura de chocolate.
-                        </p>
+                        <p class="text-gray-600 text-sm mb-2">Brownie com cobertura de chocolate.</p>
                         <span class="font-semibold text-[#e57f19]">R$ 1,50</span>
                     </div>
                 </div>
@@ -171,15 +188,30 @@
                 <h3 class="font-semibold text-xl mb-4 text-[#e57f19]">Cupcakes</h3>
                 <div class="space-y-6">
                     <div class="bg-white p-4 rounded shadow hover:shadow-lg transition">
-                        <img src="imagens/cupcakc.jpeg" alt="Cupcake de Chocolate"
-                            class="w-full h-48 object-cover rounded mb-3" />
+                        <a href="imagens/cupcakc.jpeg" data-lightbox="produtos" data-title="Cupcake de Brownie">
+                            <img src="imagens/cupcakc.jpeg" alt="Cupcake de Chocolate"
+                                class="w-full h-48 object-cover rounded mb-3" />
+                        </a>
                         <h4 class="font-bold text-lg text-[#181411]">Cupcake de Brownie</h4>
                         <p class="text-gray-600 text-sm mb-2">Cupcake fofinho com cobertura de chantili.</p>
                         <span class="font-semibold text-[#e57f19]">R$ 4,50</span>
                     </div>
+
                     <div class="bg-white p-4 rounded shadow hover:shadow-lg transition">
-                        <img src="imagens/presente.jpeg" alt="Cupcake Red Velvet"
-                            class="w-full h-48 object-cover rounded mb-3" />
+                        <a href="imagens/donuts.jpeg" data-lightbox="produtos" data-title="Donuts para festas">
+                            <img src="imagens/donuts.jpeg" alt="Donuts para festas"
+                                class="w-full h-48 object-cover rounded mb-3" />
+                        </a>
+                        <h4 class="font-bold text-lg text-[#181411]">Donuts para festas</h4>
+                        <p class="text-gray-600 text-sm mb-2">Donuts.</p>
+                        <span class="font-semibold text-[#e57f19]">R$ 2,60</span>
+                    </div>
+
+                    <div class="bg-white p-4 rounded shadow hover:shadow-lg transition">
+                        <a href="imagens/presente.jpeg" data-lightbox="produtos" data-title="Cupcake mimo empresarial">
+                            <img src="imagens/presente.jpeg" alt="Cupcake mimo empresarial"
+                                class="w-full h-48 object-cover rounded mb-3" />
+                        </a>
                         <h4 class="font-bold text-lg text-[#181411]">Cupcake mimo empresarial</h4>
                         <p class="text-gray-600 text-sm mb-2">.</p>
                         <span class="font-semibold text-[#e57f19]">R$ 12,50</span>
@@ -188,64 +220,47 @@
             </div>
 
             <!-- Categoria 3 -->
+
             <div>
                 <h3 class="font-semibold text-xl mb-4 text-[#e57f19]">Outros</h3>
                 <div class="space-y-6">
+                    
                     <div class="bg-white p-4 rounded shadow hover:shadow-lg transition">
-                        <img src="imagens/brigadeiro.jpeg" alt="Brigadeiro Gourmet"
-                            class="w-full h-48 object-cover rounded mb-3" />
-                        <h4 class="font-bold text-lg text-[#181411]">Brigadeiro Gourmet</h4>
-                        <p class="text-gray-600 text-sm mb-2">Brigadeiro artesanal.</p>
-                        <span class="font-semibold text-[#e57f19]">R$ 1,50</span>
-                    </div>
-                </div>
-                <div class="space-y-6">
-                    <div class="bg-white p-4 rounded shadow hover:shadow-lg transition">
-                        <img src="imagens/cestas.jpeg" alt="Cestas Diversas"
-                            class="w-full h-48 object-cover rounded mb-3" />
-                        <h4 class="font-bold text-lg text-[#181411]">Café da manhã e datas comemorativas</h4>
+                        <a href="imagens/cestas.jpeg" data-lightbox="produtos"
+                            data-title="Café da manhã e datas comemorativas">
+                            <img src="imagens/cestas.jpeg" alt="Cestas Diversas"
+                                class="w-full h-48 object-cover rounded mb-3" />
+                        </a>
+                        <h4 class="font-bold text-lg text-[#181411]">Cestas de Café da manhã</h4>
                         <p class="text-gray-600 text-sm mb-2"></p>
                         <span class="font-semibold text-[#e57f19]">R$ 65,00 a R$ 280,00</span>
                     </div>
-                </div>
-            </div>
-            <div>
 
-                <div class="space-y-6">
                     <div class="bg-white p-4 rounded shadow hover:shadow-lg transition">
-                        <img src="imagens/biscoitos.jpeg" alt="Biscoitos amanteigados"
-                            class="w-full h-48 object-cover rounded mb-3" />
+                        <a href="imagens/biscoitos.jpeg" data-lightbox="produtos" data-title="Biscoitos amanteigados">
+                            <img src="imagens/biscoitos.jpeg" alt="Biscoitos amanteigados"
+                                class="w-full h-48 object-cover rounded mb-3" />
+                        </a>
                         <h4 class="font-bold text-lg text-[#181411]">Biscoitos amanteigados</h4>
                         <p class="text-gray-600 text-sm mb-2">Biscoitos caseiros.</p>
                         <span class="font-semibold text-[#e57f19]">R$ 68,00 kg</span>
                     </div>
-                </div>
-            </div>
-            <div>
 
-                <div class="space-y-6">
                     <div class="bg-white p-4 rounded shadow hover:shadow-lg transition">
-                        <img src="imagens/pipoca.jpeg" alt="Pipoca Gourmet"
-                            class="w-full h-48 object-cover rounded mb-3" />
-                        <h4 class="font-bold text-lg text-[#181411]">Pipoca Gourmet varios sabores</h4>
+                        <a href="imagens/pipoca.jpeg" data-lightbox="produtos"
+                            data-title="Pipoca Gourmet vários sabores">
+                            <img src="imagens/pipoca.jpeg" alt="Pipoca Gourmet"
+                                class="w-full h-48 object-cover rounded mb-3" />
+                        </a>
+                        <h4 class="font-bold text-lg text-[#181411]">Pipoca Gourmet vários sabores</h4>
                         <p class="text-gray-600 text-sm mb-2">.</p>
-                        <span class="font-semibold text-[#e57f19]">R$ 5,50 </span>
-                    </div>
-                </div>
-            </div>
-            <div>
-
-                <div class="space-y-6">
-                    <div class="bg-white p-4 rounded shadow hover:shadow-lg transition">
-                        <img src="imagens/donuts.jpeg" alt="Brigadeiro Gourmet"
-                            class="w-full h-48 object-cover rounded mb-3" />
-                        <h4 class="font-bold text-lg text-[#181411]">Donuts para festas</h4>
-                        <p class="text-gray-600 text-sm mb-2">Donuts.</p>
-                        <span class="font-semibold text-[#e57f19]">R$ 2,60</span>
+                        <span class="font-semibold text-[#e57f19]">R$ 5,50</span>
                     </div>
                 </div>
             </div>
         </div>
+        
+        
 
 
         <!-- Carrossel -->
